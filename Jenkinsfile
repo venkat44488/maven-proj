@@ -18,14 +18,7 @@ pipeline {
         stage("deploy-to-tomcat"){
             steps {
                 echo "welcome to deployment"
-                sh """
-                deploy adapters: [tomcat8(credentialsId: 'tomcatadmin'
-                
-                path: ''
-                url: 'http://35.223.144.233:8080')] 
-                contextPath: null
-                war: '**/*.war' 
-                """
+                sh " deploy adapters: [tomcat8(path: '', url: 'http://35.223.144.233:8080')], contextPath: null, war: '**/*.war' "
             }
         }
        
