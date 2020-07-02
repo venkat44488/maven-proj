@@ -5,16 +5,14 @@ pipeline {
     stages {
         stage("welcome") {
             steps {
-                echo "welcome to stage1"
+                echo "welcome to jenkinsfile"
 
 }
 }
-
-stage("gti checkout") {
-            steps {
-               git credentialsId: 'gitaccount', url: 'https://github.com/venkat44488/maven-proj.git'
-
-}
-}
+        stage("MAVEN-BUILD) {
+        steps {
+            sh "clean install build"
+        }
+    }
 }
 }
