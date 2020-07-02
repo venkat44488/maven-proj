@@ -18,7 +18,11 @@ pipeline {
         stage("deploy-to-tomcat"){
             steps {
                 echo "welcome to deployment"
-                sh " deploy adapters: [tomcat8(path: '', url: 'http://35.223.144.233:8080')], contextPath: null, war: '**/*.war' "
+               sshagent(['root']) {
+                sh ' ssh -o StrictHostKeyChecking=no target/*.war root@192.168.1.106:/opt/tomcat8/webapps'
+}
+
+
             }
         }
        
