@@ -9,7 +9,7 @@ pipeline {
 
 }
 }
-        stage("MAVEN-BUILD) {
+        stage("MAVEN-BUILD") {
         steps {
             sh "clean install build"
         }
